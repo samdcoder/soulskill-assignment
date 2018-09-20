@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="container">
-		<form method="post" class="form-horizontal" enctype="multipart/form-data">
+		<form method="post" action="/" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group col-md">
 				<label for="name"> Name </label>
 				<input class="form-control" width="10" type="text" name="name" placeholder="Enter your name" required>
@@ -29,9 +29,10 @@
 
 			<div class="form-group file-path-wrapper col-2">
 				<label for="resume"> Resume</label>
-				<input type="file" name="filename" required>
+				<input type="file" name="filename" accept="application/pdf required>
 			</div>
 
+			<br> <br>
 			<div class="form-group col-lg-4">
 				<input class="btn-primary btn-block" type="submit" value="submit">
 			</div>
