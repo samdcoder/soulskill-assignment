@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/samdcoder/soulskill-assignment/issues"
   },
-  "homepage": "https://github.com/samdcoder/soulskill-assignment#readme"
+  "homepage": "https://github.com/samdcoder/soulskill-assignment#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0"
+  }
 }
