@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const upload = require('express-fileupload');
 const mongoose = require('mongoose');
 const User = require('./models/user');
+const cookieParser = require('cookie-parser');
 const env = require('./env');
 const PORT = process.env.port || 3000; 
 
@@ -14,13 +15,23 @@ mongoose.connect('mongodb+srv://samdcoder:'+env.mongopw+'@cluster0-bcmtk.mongodb
 app.use(upload());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser());
+app.use(cookieParser());
 
 app.get('/', function(request, response){
 	response.sendFile('index.html');
 });
 
 app.post('/', function(request, response){
-	console.log(request);
+	//Creating/updating a user's visit count in cookies. user's email is key and value is count
+	if(request.cookies[request.body.email+'Count'] != null){
+		var visitCount = parseInt(request.cookies[request.body.email+'Count']);
+		visitCount += 1;
+		response.cookie(request.body.email+'Count', visitCount);
+	}
+	else{
+		response.cookie(request.body.email+'Count', 1);
+	}
+
 	if(request.files){
 		var file = request.files.filename;
 		var filename = file.name;
