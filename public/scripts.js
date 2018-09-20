@@ -12,7 +12,12 @@ $(document).ready(function(){
             success: function (data) {
                 var result = $('#result');
                 result.html('');
-                result.append('<center> <p> ' + data.message + '</p> </center>');
+                result.append('<center> ' + data.message + '</p> </center>');
+                if(data.code == 200){
+                    $( '#user-form' ).each(function(){
+                         this.reset();
+                    });
+                }
             },
             cache: false,
             contentType: false,

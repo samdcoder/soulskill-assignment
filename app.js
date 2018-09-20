@@ -37,7 +37,7 @@ app.post('/', function(request, response){
 		var filename = file.name;
 		var user_email = request.body.email;
 		if(file.mimetype != 'application/pdf'){
-			response.send({'message': 'Please use .pdf files for uploading resume'});
+			response.send({'message': 'Please upload your resume in .pdf format.', 'code':400});
 			return;
 
 		}
@@ -49,7 +49,7 @@ app.post('/', function(request, response){
 		file.mv(path.join(__dirname, 'resumes', user_email, filename), function(err) {
 				if(err){
 					console.log("error: ", err);
-					response.send({'message': 'error occurred while saving resume!'});
+					response.send({'message': 'error occurred while saving resume!', 'code':400});
 				}
 		});
 
@@ -64,12 +64,12 @@ app.post('/', function(request, response){
 
 		user.save(function(err){
 			if(err){
-				response.send({'message': err});
+				response.send({'message': err, 'code':400});
 				console.log("Error: ", err);
 				return;
 			}
 		});
-		response.send({'message': 'successfully stored the data'});
+		response.send({'message': 'Successfully stored the data!', 'code':200});
 		
 	}
 });

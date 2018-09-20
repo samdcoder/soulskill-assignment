@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>	
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
 	<script
  	 src="https://code.jquery.com/jquery-2.2.4.min.js"
   	 integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   	 crossorigin="anonymous"></script>
 	<script type="text/javascript" src="scripts.js"></script>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>User Information</title>
 </head>
 <body>
-	<div class="container">
+	<br>
+	<h4 class="text-primary"> <center> User Information Form </center> </h4>
+	<div class="container col-md-4 col-md-offset-4">
 		<form method="post" id="user-form" action = "/" class="form-horizontal" enctype="multipart/form-data">
-			<div class="form-group col-md">
+			<div class="form-group col-lg-12">
 				<label for="name"> Name </label>
 				<input class="form-control" width="10" type="text" name="name" id="name" placeholder="Enter your name" required>
 			</div>
 			
-			<div class="form-group col-md">
+			<div class="form-group col-lg-12">
 				<label for="tel"> Phone </label>
 				<input class="form-control" type="tel" pattern="^\d{10}$" name="phone" id="phone" placeholder="Enter your 10 digit Mobile number" required >
 			</div>
 
-			<div class="form-group col-md">
+			<div class="form-group col-lg-12">
 				<label for="email"> Email </label>
 				<input class="form-control" type="email" name="email" id="email" placeholder="Enter your Email" required >
 			</div>
 
-			<div class="form-group col-md">
+			<div class="form-group col-lg-12">
 				<label for="job"> Job Title</label>
 				<input class="form-control" type="text" name="job" id="job" placeholder="Enter your job title" required>
 			</div>
 
-			<div class="form-group file-path-wrapper col-2">
+			<div class="form-group file-path-wrapper col-lg-12">
 				<label for="resume"> Resume</label>
 				<input type="file" name="filename" accept="application/pdf" required>
 			</div>
 
-			<br> <br>
-			<div class="form-group col-lg-4">
-				<input class="btn-primary btn-block" id="submit-button" type="submit" value="submit">
+			<br>
+			<div class="form-group col-lg-8 text-center">
+				<input class="btn-primary btn-block" id="submit-button" type="submit" value="Submit">
 			</div>
 			
 		</form>
 	</div>
-	<div id="result">
+	<div id="result" class="form-group col-lg-1 text-center">
 	</div>
 
 </body>
