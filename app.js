@@ -5,8 +5,9 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const upload = require('express-fileupload');
 const mongoose = require('mongoose');
-const Users = require('./models/user');
+const User = require('./models/user');
 const env = require('./env');
+const PORT = process.env.port || 3000; 
 
 mongoose.connect('mongodb+srv://samdcoder:'+env.mongopw+'@cluster0-bcmtk.mongodb.net/test?retryWrites=true');
 
@@ -19,12 +20,13 @@ app.get('/', function(request, response){
 });
 
 app.post('/', function(request, response){
+	console.log(request);
 	if(request.files){
 		var file = request.files.filename;
 		var filename = file.name;
 		var user_email = request.body.email;
 		if(file.mimetype != 'application/pdf'){
-			response.sendFile('pdf_check.html', {"root": path.join(__dirname, 'public')});
+			response.send({'message': 'Please use .pdf files for uploading resume'});
 			return;
 
 		}
@@ -41,7 +43,7 @@ app.post('/', function(request, response){
 		});
 
 		//save data to the database
-		const user = new Users({
+		const user = new User({
 			_id: new mongoose.Types.ObjectId(),
 			name: request.body.name,
 			email: request.body.email,
@@ -55,12 +57,13 @@ app.post('/', function(request, response){
 				return;
 			}
 		});
-		response.send(user);
+		response.send({'message': 'successfully stored the data'});
+		
 	}
 });
 
-app.listen(3000, function(){
-	console.log("server listening on port "+3000);
+app.listen(PORT, function(){
+	console.log("server listening on port " + PORT);
 });
 
 
