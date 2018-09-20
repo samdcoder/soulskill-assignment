@@ -1,0 +1,19 @@
+{
+  "name": "soulskill",
+  "version": "1.0.0",
+  "description": "Soulskill's Javascript/Node assignment for user form data upload and storing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samdcoder/soulskill-assignment.git"
+  },
+  "author": "Sameer Pathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samdcoder/soulskill-assignment/issues"
+  },
+  "homepage": "https://github.com/samdcoder/soulskill-assignment#readme"
+}
