@@ -10,7 +10,6 @@ $(document).ready(function(){
             type: 'POST',
             data: formData,
             success: function (data) {
-                console.log(data);
                 var result = $('#result');
                 result.html('');
                 result.append('<center> <p> ' + data.message + '</p> </center>');

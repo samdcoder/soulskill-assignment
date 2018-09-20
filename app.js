@@ -38,7 +38,7 @@ app.post('/', function(request, response){
 		file.mv(path.join(__dirname, 'resumes', user_email, filename), function(err) {
 				if(err){
 					console.log("error: ", err);
-					response.send("error occurred!");
+					response.send({'message': 'error occurred while saving resume!'});
 				}
 		});
 
@@ -53,6 +53,7 @@ app.post('/', function(request, response){
 
 		user.save(function(err){
 			if(err){
+				response.send({'message': err});
 				console.log("Error: ", err);
 				return;
 			}
