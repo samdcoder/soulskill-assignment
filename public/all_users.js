@@ -6,7 +6,6 @@ $(document).ready(function(){
                 console.log(data);
                 var result = $('#userData');
                 var counter = 1;
-                //result.append('<center> ' + data.message + '</p> </center>');
                for(var key in data){
                	result.append('<tr> <th scope="row">'+ counter + '</th>' + '<td>' + data[key].name+'</td>'+ '<td>'+data[key].email+'</td>'+'<td>'+data[key].phone+'</td>'+'<td>'+data[key].job+'</td>'+'</tr>');
                 counter++;
