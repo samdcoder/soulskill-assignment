@@ -74,6 +74,10 @@ app.post('/', function(request, response){
 	}
 });
 
+app.use(function(request, response, next){
+  response.sendFile('404.html', {root: path.join(__dirname, 'public')});
+  });
+
 app.listen(PORT, function(){
 	console.log("server listening on port " + PORT);
 });
