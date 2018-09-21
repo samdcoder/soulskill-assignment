@@ -74,6 +74,21 @@ app.post('/', function(request, response){
 	}
 });
 
+app.get('/userData', function(request, response){
+	User.find({}, function(err, users){
+		var userMap = {};
+		users.forEach(function(user){
+			userMap[user._id] = user;
+		});
+		response.send(userMap);
+		
+	});
+});
+
+app.get('/users', function(request, response){
+	response.sendFile('users.html', {root: path.join(__dirname, 'public')});
+})
+
 app.use(function(request, response, next){
   response.sendFile('404.html', {root: path.join(__dirname, 'public')});
   });
