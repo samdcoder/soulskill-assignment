@@ -5,10 +5,11 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
                 var result = $('#userData');
+                var counter = 1;
                 //result.append('<center> ' + data.message + '</p> </center>');
                for(var key in data){
-               	console.log(data[key].email);
-               	result.append('<tr> <th scope="row">'+data[key].name+'</th>'+ '<td>'+data[key].email+'</td>'+'<td>'+data[key].phone+'</td>'+'<td>'+data[key].job+'</td>'+'</tr>');
+               	result.append('<tr> <th scope="row">'+ counter + '</th>' + '<td>' + data[key].name+'</td>'+ '<td>'+data[key].email+'</td>'+'<td>'+data[key].phone+'</td>'+'<td>'+data[key].job+'</td>'+'</tr>');
+                counter++;
                }
                
             },
